@@ -101,7 +101,7 @@ button {
 }
 
 button.delete-book {
-    background-color: #FF4B4B;
+    background-color: #f94444;
     color: white;
     transition: background 0.3s;
 }

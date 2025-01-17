@@ -1,85 +1,57 @@
-// Charger la liste des livres dans la page d'accueil
-if (document.getElementById('book-list')) {
-    fetch('data/books.json')
-        .then(response => response.json())
-        .then(books => {
-            const bookList = document.getElementById('book-list');
-            books.forEach(book => {
-                const li = document.createElement('li');
-                li.textContent = `${book.title} - ${book.author} (${book.status === "available" ? "Disponible" : "Emprunté"})`;
-                bookList.appendChild(li);
-            });
-        })
-        .catch(err => console.error('Erreur chargement livres:', err));
+async function loadData(key, file) {
+    const localData = localStorage.getItem(key);
+    if (localData) {
+        return JSON.parse(localData);
+    } else {
+        const response = await fetch(file);
+        const data = await response.json();
+        localStorage.setItem(key, JSON.stringify(data));
+        return data;
+    }
+}
 
-    // Recherche dans la liste des livres
-    document.getElementById('search').addEventListener('input', function (e) {
-        const searchValue = e.target.value.toLowerCase();
-        const books = document.querySelectorAll('#book-list li');
-        books.forEach(book => {
-            if (book.textContent.toLowerCase().includes(searchValue)) {
-                book.style.display = 'block';
-            } else {
-                book.style.display = 'none';
-            }
-        });
+async function displayBooks() {
+    const books = await loadData('books', 'data/books.json');
+    const tableBody = document.querySelector('#books-table tbody');
+    tableBody.innerHTML = '';
+
+    books.forEach((book) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><img src="${book.cover}" alt="Couverture de ${book.title}" class="book-cover"></td>
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.status}</td>
+            <td>
+                ${book.status === 'Disponible' 
+                    ? `<button onclick="borrowBook(${book.id})">Emprunter</button>` 
+                    : `<button onclick="returnBook(${book.id})">Rendre</button>`}
+            </td>
+        `;
+        tableBody.appendChild(row);
     });
 }
 
-// Gestion des livres pour les membres
-if (document.getElementById('member-book-list')) {
-    fetch('data/books.json')
-        .then(response => response.json())
-        .then(books => {
-            const bookList = document.getElementById('member-book-list');
-            books.forEach(book => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    ${book.title} - ${book.author} (${book.status === "available" ? "Disponible" : "Emprunté"})
-                    <button class="delete-book" data-id="${book.id}">Supprimer</button>
-                `;
-                bookList.appendChild(li);
-            });
+async function borrowBook(bookId) {
+    const books = await loadData('books', 'data/books.json');
+    const book = books.find(b => b.id === bookId);
+    if (book && book.status === 'Disponible') {
+        book.status = 'Emprunté';
+        localStorage.setItem('books', JSON.stringify(books));
+        displayBooks();
+    }
+}
 
-            // Supprimer un livre
-            document.querySelectorAll('.delete-book').forEach(button => {
-                button.addEventListener('click', function () {
-                    const bookId = this.getAttribute('data-id');
-                    console.log(`Livre avec l'ID ${bookId} supprimé (simulation).`);
-                });
-            });
-        })
-        .catch(err => console.error('Erreur chargement livres:', err));
+async function returnBook(bookId) {
+    const books = await loadData('books', 'data/books.json');
+    const book = books.find(b => b.id === bookId);
+    if (book && book.status === 'Emprunté') {
+        book.status = 'Disponible';
+        localStorage.setItem('books', JSON.stringify(books));
+        displayBooks();
+    }
+}
 
-    // Ajouter un nouveau livre
-    document.getElementById('add-book-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const title = document.getElementById('book-title').value;
-        const author = document.getElementById('book-author').value;
-
-        fetch('data/books.json')
-            .then(response => response.json())
-            .then(books => {
-                const newBook = {
-                    id: books.length + 1,
-                    title: title,
-                    author: author,
-                    status: "available"
-                };
-
-                books.push(newBook);
-                console.log('Livre ajouté:', newBook);
-
-                // Ajouter le livre à la liste affichée
-                const bookList = document.getElementById('member-book-list');
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    ${newBook.title} - ${newBook.author} (Disponible)
-                    <button class="delete-book" data-id="${newBook.id}">Supprimer</button>
-                `;
-                bookList.appendChild(li);
-            })
-            .catch(err => console.error('Erreur ajout livre:', err));
-    });
+if (location.pathname.includes('membres.html') || location.pathname.includes('admin.html')) {
+    displayBooks();
 }

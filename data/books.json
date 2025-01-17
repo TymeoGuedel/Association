@@ -3,18 +3,160 @@
         "id": 1,
         "title": "Le Petit Prince",
         "author": "Antoine de Saint-Exupéry",
-        "status": "available"
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/en/0/05/Little_Prince_1943.jpg"
     },
     {
         "id": 2,
         "title": "1984",
         "author": "George Orwell",
-        "status": "borrowed"
+        "status": "Emprunté",
+        "borrowedBy": "user1",
+        "cover": "https://upload.wikimedia.org/wikipedia/en/c/c3/1984first.jpg"
     },
     {
         "id": 3,
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/5/55/Moby-Dick_FE_title_page.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Les Misérables",
+        "author": "Victor Hugo",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Les_Misérables_1862_-_1er_vol_-_Frontispice.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/8/8e/PrideAndPrejudiceTitlePage.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Don Quichotte",
+        "author": "Miguel de Cervantes",
+        "status": "Emprunté",
+        "borrowedBy": "user2",
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/6/62/Don_Quixote_and_Sancho_Panza.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Hamlet",
+        "author": "William Shakespeare",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamlet_1603_title_page.jpg"
+    },
+    {
+        "id": 8,
+        "title": "La Divine Comédie",
+        "author": "Dante Alighieri",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/2/25/Divina_Commedia_Priamo_della_Quercia.jpg"
+    },
+    {
+        "id": 9,
+        "title": "Harry Potter à l'école des sorciers",
+        "author": "J.K. Rowling",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/en/6/62/Harry_Potter_and_the_Sorcerer%27s_Stone.jpg"
+    },
+    {
+        "id": 10,
+        "title": "Le Seigneur des Anneaux",
+        "author": "J.R.R. Tolkien",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/en/8/8e/The_Fellowship_of_the_Ring_cover.gif"
+    },
+    {
+        "id": 11,
+        "title": "La Peste",
+        "author": "Albert Camus",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/6/64/Albert_Camus%2C_La_Peste.jpg"
+    },
+    {
+        "id": 12,
+        "title": "Madame Bovary",
+        "author": "Gustave Flaubert",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Madame_Bovary_1857_%28hi_res%29.jpg"
+    },
+    {
+        "id": 13,
+        "title": "Le Comte de Monte-Cristo",
+        "author": "Alexandre Dumas",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/6/6b/ComteMC01.jpg"
+    },
+    {
+        "id": 14,
         "title": "L'Étranger",
         "author": "Albert Camus",
-        "status": "available"
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/0/08/Albert_Camus_L%27Etranger_1942.png"
+    },
+    {
+        "id": 15,
+        "title": "Alice au pays des merveilles",
+        "author": "Lewis Carroll",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Alice%27s_Adventures_in_Wonderland_cover.jpg"
+    },
+    {
+        "id": 16,
+        "title": "Les Mille et Une Nuits",
+        "author": "Anonyme",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Les_Mille_et_une_nuits.jpg"
+    },
+    {
+        "id": 17,
+        "title": "Le Rouge et le Noir",
+        "author": "Stendhal",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/3/31/Le_Rouge_et_le_Noir.jpg"
+    },
+    {
+        "id": 18,
+        "title": "Germinal",
+        "author": "Émile Zola",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/8/87/Germinal_1885.jpg"
+    },
+    {
+        "id": 19,
+        "title": "Frankenstein",
+        "author": "Mary Shelley",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/3/35/Frankenstein_1818_edition_title_page.jpg"
+    },
+    {
+        "id": 20,
+        "title": "Dracula",
+        "author": "Bram Stoker",
+        "status": "Disponible",
+        "borrowedBy": null,
+        "cover": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Dracula1st.jpeg"
     }
 ]

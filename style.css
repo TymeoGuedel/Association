@@ -1,111 +1,40 @@
-/* Style général */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f5f5f5;
 }
 
-/* En-tête et pied de page */
-header, footer {
-    background: #007BFF;
+header {
+    background-color: #333;
     color: white;
+    padding: 1em;
     text-align: center;
-    padding: 15px 0;
 }
 
-footer a {
-    color: #fff;
+nav a {
+    margin: 0 10px;
+    color: white;
     text-decoration: none;
 }
 
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Conteneur principal */
-main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Titres */
-h1, h2, h3 {
-    color: #007BFF;
-    text-align: center;
-}
-
-/* Formulaires */
-form {
-    margin: 20px 0;
-}
-
-form input, form button {
+table {
     width: 100%;
-    padding: 12px 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-form button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-form button:hover {
-    background-color: #0056b3;
-}
-
-/* Listes */
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    margin: 8px 0;
-    background: #f9f9f9;
+table, th, td {
     border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-li:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+th, td {
+    padding: 10px;
+    text-align: left;
 }
 
-/* Boutons d'action */
-button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-button.delete-book {
-    background-color: #f94444;
-    color: white;
-    transition: background 0.3s;
-}
-
-button.delete-book:hover {
-    background-color: #d43d3d;
+img.book-cover {
+    width: 50px;
+    height: 75px;
+    object-fit: cover;
 }
